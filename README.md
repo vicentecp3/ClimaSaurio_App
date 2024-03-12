@@ -10,8 +10,8 @@ Objetivos:
 
 Temáticas:
 
-. Dinosaurios animados que representen diferentes tipos de climas
-. Frases meteorológicas divertidas.
+-Dinosaurios animados que representen diferentes tipos de climas
+-Frases meteorológicas divertidas.
 
 Descripción
 
