@@ -1,13 +1,14 @@
 Historial de Tareas
 
-                                            11 de marzo
+# 11 de marzo
+
 . Definición del Título, Objetivos y Temáticas:
   Se estableció el título de la aplicación como "Climasaurio" y se definieron los objetivos y temáticas principales.
 
 . Borrador del Modelo de Datos:
   Se creó un modelo de datos con entidades como Usuario, Ciudad, Datos Meteorológicos, Alertas meteorológicas entre otras…
   
-                                          12 de marzo
+# 12 de marzo
 
 . Ampliación del Modelo de Datos:
   Se mejoró el modelo de datos agregando detalles como humedad, velocidad del viento y preferencias del usuario.
@@ -21,7 +22,8 @@ Historial de Tareas
 
 . Se creó el archivo historial.md para realizar un seguimiento detallado de las tareas realizadas.
 
-                                           13 Marzo
+# 13 Marzo
+
 . Se terminó el figma ( agregando las nuevas pantallas que faltaban y colocando los botones a funcionar)
 
 .Se subio el AnteProyecto completo.
