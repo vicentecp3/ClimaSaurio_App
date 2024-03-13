@@ -1,6 +1,4 @@
-# AppClima_Vicente
-
-ClimaSaurio - Tu Acompañante Meteorológico Divertido
+# ClimaSaurio - Tu Acompañante Meteorológico Divertido
 
 Objetivos:
 
