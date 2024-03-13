@@ -15,11 +15,11 @@
 
 Esta app de clima es un servicio de pronóstico del tiempo de manera divertida que permite a los usuarios obtener información actualizada sobre las condiciones climáticas de diversas ciudades. Los usuarios pueden registrar una cuenta para personalizar su experiencia y agregar ciudades favoritas a su perfil. Cada ciudad en la aplicación está asociada con datos climáticos históricos y actuales, proporcionando detalles como temperatura, descripción del clima, velocidad del viento.
 
-### Modelo de datos entidad relación:
+### Modelo de datos Ejemplos:
 
 [ModeloEjemplo.ods](https://github.com/vicentecp3/AppClima_Vicente/files/14587456/ModeloEjemplo.ods)
 
-### Modelo de datos Ejemplos:
+### Modelo de datos entidad relación:
 
 ![ModeloDatos](https://github.com/vicentecp3/AppClima_Vicente/assets/114146515/a4e99093-e1e1-4a42-8f95-f755da3470f7)
 
