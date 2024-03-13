@@ -22,6 +22,7 @@ Historial de Tareas
 . Se creó el archivo historial.md para realizar un seguimiento detallado de las tareas realizadas.
 
                                            13 Marzo
-. Se terminó el figma ( agregando las nuevas pantallas que faltaban y colocando los botones a funcionar).
+. Se terminó el figma ( agregando las nuevas pantallas que faltaban y colocando los botones a funcionar)
+
 .Se subio el AnteProyecto completo.
 
