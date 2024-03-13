@@ -25,6 +25,7 @@ Esta app de clima es un servicio de pronóstico del tiempo de manera divertida q
 
 ### Figma (Mockup)
 
+[ClimaSaurio(Mockup).pdf](https://github.com/vicentecp3/AppClima_Vicente/files/14587701/ClimaSaurio.Mockup.pdf)
 
 ![1](https://github.com/vicentecp3/AppClima_Vicente/assets/114146515/27508b1a-ee85-4ad2-a6a7-aafe35770c5e)
 ![2](https://github.com/vicentecp3/AppClima_Vicente/assets/114146515/70204f61-c393-40bc-8baa-74693ad1b006)
