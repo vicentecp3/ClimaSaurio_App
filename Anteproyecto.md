@@ -19,6 +19,9 @@ Esta app de clima es un servicio de pronóstico del tiempo de manera divertida q
 
 [ModeloEjemplo.ods](https://github.com/vicentecp3/AppClima_Vicente/files/14587456/ModeloEjemplo.ods)
 
+![modeloEjemplo](https://github.com/vicentecp3/ClimaSaurio_App/assets/114146515/085f7600-6f06-4809-8bcd-50ab66962076)
+
+
 ### Modelo de datos entidad relación:
 
 ![ModeloDatos](https://github.com/vicentecp3/AppClima_Vicente/assets/114146515/a4e99093-e1e1-4a42-8f95-f755da3470f7)
