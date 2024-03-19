@@ -26,5 +26,20 @@ Historial de Tareas
 
 . Se terminó el figma ( agregando las nuevas pantallas que faltaban y colocando los botones a funcionar)
 
-.Se subio el AnteProyecto completo.
+. Se subió el AnteProyecto completo.
+
+# 14 Marzo
+
+. Creé una cuenta para obtener la clave de la API de OpenWeatherMap
+. Trabajé desde casa haciendo un código de prueba para usar la API y poder ver el clima de una zona.
+
+# 15 Marzo
+
+. Seguí trabajando en esa prueba del día 14 de marzo ya que tuve dificultades para poder hacer el código.
+
+# 18 Marzo
+
+. Cree una prueba nueva para probar la API y vi códigos de GitHub para ver como usan la API las demás personas
+
+
 
