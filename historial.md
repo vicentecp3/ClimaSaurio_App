@@ -41,5 +41,14 @@ Historial de Tareas
 
 . Cree una prueba nueva para probar la API y vi códigos de GitHub para ver como usan la API las demás personas
 
+# 19 Marzo
+
+. En la búsqueda de códigos de referencia de GitHub que busqué ayer, encontré uno que me ayudaría con el comienzo de la app.
+
+. Pude coger los datos y cambiar la localización del móvil ya que decía que estaba en California.
+
+. Hice los recuadros para saber el clima a diferentes horas del día, se añadieron  imágenes y la temperatura actual de Haría. 
+
+
 
 
