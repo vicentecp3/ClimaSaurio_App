@@ -49,6 +49,15 @@ Historial de Tareas
 
 . Hice los recuadros para saber el clima a diferentes horas del día, se añadieron  imágenes y la temperatura actual de Haría. 
 
+# 20 Marzo
+
+. Se siguió configurando la interfaz de usuario para añadir un pronóstico del clima en diferentes horas del día.
+
+. Se añadió un nuevo recuadro el cual marca la Humedad que hay en la localización del móvil.
+
+. En los recuadros añadidos el día de ayer se configuró que cada uno fuera independiente para poder colocar una hora diferente y temperatura en cada uno.
+
+. Se creó un nuevo rectángulo donde saldrá la previsión del clima para los próximos días ( no funciona ).
 
 
 
