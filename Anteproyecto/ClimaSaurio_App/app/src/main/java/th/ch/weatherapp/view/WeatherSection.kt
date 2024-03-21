@@ -21,7 +21,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -120,6 +119,7 @@ fun WeatherSection(weatherResponse: WeatherResult) {
     }
     Spacer(modifier = Modifier.height(8.dp))
 
+    // Large rounded rectangle
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -129,36 +129,68 @@ fun WeatherSection(weatherResponse: WeatherResult) {
             .background(color = Color.White)
     )
 
-
     // Primer rectángulo
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(110.dp),
-        horizontalArrangement = Arrangement.SpaceAround,){
-
-        var currentTemp = weatherResponse.main?.humidity?.let { "$it%" } ?: ""
+    Row {
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp) // Ajusta la altura según sea necesario
-                .padding(25.dp)
-                .clip(shape = RoundedCornerShape(10.dp))
-                .background(color = Color.White)
+                .padding(end = 10.dp, top = 24.dp)
+                .size(170.dp)
+                .background(color = Color.White, shape = RoundedCornerShape(7.dp))
         ) {
-            Text(text = "Humedad")
+            val currentTemp = weatherResponse.main?.humidity?.let { "$it%" } ?: ""
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally, // Alinea los elementos al centro horizontalmente
+                modifier = Modifier.padding(36.dp)
+            ) {
+                Text(
+                    text = "Humedad",
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+                Image(
+                    modifier = Modifier.size(45.dp),
+                    painter = painterResource(id = R.drawable.humedasicono),
+                    contentDescription = "SolPuro"
+                )
+                Text(
+                    text = currentTemp,
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+            }
+        }
 
-            Text(
-                text = currentTemp,
-                fontSize = 20.sp,
-                color = Color.Black,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(8.dp)
-            )
+        // Segundo rectángulo
+        Box(
+            modifier = Modifier
+                .padding(start = 11.dp, top = 24.dp)
+                .size(170.dp)
+                .background(color = Color.White, shape = RoundedCornerShape(7.dp))
+        ) {
+            val windSpeed = weatherResponse.wind?.speed?.let { "${it} Km/h" } ?: ""
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally, // Alinea los elementos al centro horizontalmente
+                modifier = Modifier.padding(36.dp)
+            ) {
+                Text(
+                    text = "Viento",
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+                Image(
+                    modifier = Modifier.size(45.dp),
+                    painter = painterResource(id = R.drawable.vientoicono),
+                    contentDescription = "SolPuro"
+                )
+                Text(
+                    text = windSpeed,
+                    fontSize = 20.sp,
+                    color = Color.Black
+                )
+            }
         }
     }
-
 }
-
 @Composable
 fun WeatherTitleSection(text: String, subText: String, fontSize: TextUnit) {
     Column(
@@ -183,6 +215,5 @@ fun getNextHour(currentHour: Int, nextHourOffset: Int): String {
     } else {
         nextHour.toString()
     }
-
     return "$hourString $tipo"
 }
