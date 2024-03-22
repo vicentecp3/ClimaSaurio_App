@@ -59,5 +59,29 @@ Historial de Tareas
 
 . Se creó un nuevo rectángulo donde saldrá la previsión del clima para los próximos días ( no funciona ).
 
+# 21 Marzo
+
+. Trabajé desde casa. 
+
+. Me encargue de mejorar la app y añadir más datos meteorológicos como la presión.
+
+. También añadí, a que horaa del día amanece y anochece en la localización marcada.
+
+. Cambiar colores, añadir animaciones y estableci formas más "bonitas" a los recuadros de la app.
+
+# 22 Marzo
+
+. Trabaje desde casa.
+
+. Al comenzar el día, se me ocurrió cambiar la localización nuevamente, ya que la localización del móvil estaba en Arrecife. Al cambiarlo no se cambiaba.
+
+. Para arreglar el problema de la localización, me vi un video, y el problema era que el emulador de Android Studio le cuesta mucho refrescar la localización, 
+  y la solución es cambiar la localización y seguidamente abrir google maps para que el móvil detecte el cambio de localización, para luego abrir la app y se cambie la localización,
+  este fue el video que vi para arreglar este problema: https://www.youtube.com/watch?v=k_XaQAVua4A.
+
+. Después de arreglar este problema, vi códigos de GitHub de apps donde añadían a favoritos lugares con su respectiva localización.
+
+
+
 
 
