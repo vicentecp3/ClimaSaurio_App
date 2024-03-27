@@ -7,6 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -31,9 +32,9 @@ fun CurrentWeatherDetailRow(title1: String, value1: String, title2: String, valu
 @Composable
 private fun CurrentWeatherDetailCard(title: String, value: String) {
     Card(
-        modifier = Modifier.height(240.dp), // Altura aumentada de la tarjeta
-        backgroundColor = MaterialTheme.colors.onSecondary,
-        shape = MaterialTheme.shapes.small,
+        modifier = Modifier.height(180.dp), // Reducir la altura de la tarjeta
+        backgroundColor = MaterialTheme.colors.primary,
+        shape = MaterialTheme.shapes.medium,
         border = null
     ) {
         Column(
@@ -43,12 +44,12 @@ private fun CurrentWeatherDetailCard(title: String, value: String) {
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.h3.copy(fontSize = 18.sp),
+                style = MaterialTheme.typography.h3.copy(fontSize = 18.sp, color = Color.Black),
                 modifier = Modifier.padding(8.dp)
             )
             Text(
                 text = value,
-                style = MaterialTheme.typography.h2.copy(fontSize = 36.sp),
+                style = MaterialTheme.typography.h2.copy(fontSize = 36.sp, color = Color.Black),
                 modifier = Modifier.padding(8.dp)
             )
         }

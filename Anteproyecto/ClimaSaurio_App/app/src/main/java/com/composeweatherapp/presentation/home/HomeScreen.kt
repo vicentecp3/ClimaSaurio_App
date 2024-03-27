@@ -3,6 +3,7 @@ package com.composeweatherapp.presentation.home
 import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,8 +15,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -28,7 +29,6 @@ import com.composeweatherapp.core.helpers.SetError
 import com.composeweatherapp.presentation.component.*
 import com.composeweatherapp.core.utils.ErrorCardConsts
 import com.composeweatherapp.core.utils.ExceptionTitles
-import com.google.android.gms.awareness.snapshot.WeatherResult
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -45,14 +45,17 @@ fun HomeScreen(viewModel: HomeViewModel, onNavigateToSearchCityScreen: () -> Uni
 
 @Composable
 private fun BackgroundImage() {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Image(
-            modifier = Modifier.fillMaxSize(),
-            painter = painterResource(id = R.drawable.ic_launcher_background),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-    }
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .background(
+                brush = Brush.horizontalGradient(
+                    colors = listOf(
+                        Color(0xBA4CAF50),
+                        Color(0xBE8BC34A)
+                    )
+                )
+            )
+    ) {}
 }
 
 @Composable
@@ -100,11 +103,15 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
             text = todayWeather.cityDtoData.cityName,
             style = MaterialTheme.typography.h2
         )
+        Spacer(modifier = Modifier.height(16.dp))
         Image(
-            modifier = Modifier.size(250.dp),
-            painter = painterResource(id = R.drawable.lluvialigera),
+            modifier = Modifier
+                .size(250.dp)
+                .clip(RoundedCornerShape(18.dp)), // Ajusta el valor de la esquina según lo desees
+            painter = painterResource(id = R.drawable.personajebasico),
             contentDescription = "Lluvia Ligera"
         )
+
         Text(
             text = "${todayWeather.weatherList[0].weatherData.temp.toInt()}${AppStrings.degree}",
             style = MaterialTheme.typography.h1,
@@ -134,9 +141,9 @@ private fun DetailsSection(forecast: Forecast) {
 
 @Composable
 private fun ForecastSection(forecastData: Forecast) {
-    ForecastTitle(text = AppStrings.hourly_forecast)
+    ForecastTitle(text = "Pronóstico por hora")
     ForecastLazyRow(forecasts = forecastData.weatherList.take(8))
-    ForecastTitle(text = AppStrings.daily_forecast)
+    ForecastTitle(text = "Pronóstico diario")
     ForecastLazyRow(forecasts = forecastData.weatherList.takeLast(32))
 }
 
@@ -156,9 +163,9 @@ private fun WeatherDetailSection(currentWeather: Forecast) {
     )
     CurrentWeatherDetailRow(
         title1 = AppStrings.sunrise,
-        value1 = "${EpochConverter.readTimestamp(currentWeather.cityDtoData.sunrise)}AM",
+        value1 = "${EpochConverter.readTimestamp(currentWeather.cityDtoData.sunrise)} AM",
         title2 = AppStrings.sunset,
-        value2 = "${EpochConverter.readTimestamp(currentWeather.cityDtoData.sunset)}PM"
+        value2 = "${EpochConverter.readTimestamp(currentWeather.cityDtoData.sunset)} PM"
     )
     CurrentWeatherDetailRow(
         title1 = AppStrings.wind,

@@ -5,4 +5,6 @@ data class Main(
     val feelsLike: Double,
     val pressure: Double,
     val humidity: Int,
-)
+) {
+
+}

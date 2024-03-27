@@ -40,20 +40,16 @@ object ErrorCardConsts {
 
 object AppStrings {
 
-    // HomeScreen -> ForecastSection
-    const val hourly_forecast = "Hourly Forecast"
-    const val daily_forecast = "Daily Forecast"
-
     // HomeScreen -> WeatherDetailSection
     const val temp = "🌡 TEMP"
-    const val feels_like = "🌡 FEELS LIKE"
-    const val cloudiness = "☁ CLOUDINESS"
-    const val humidity = "💧 HUMIDITY"
-    const val sunrise = "🌇 SUNRISE"
-    const val sunset = "🌆 SUNSET"
-    const val wind = "🌬 WIND"
+    const val feels_like = "🌡 SENSACIÓN"
+    const val cloudiness = "☁ ABUNDANCIA DE NUBES"
+    const val humidity = "💧 HUMEDAD"
+    const val sunrise = "🌇 AMANECER"
+    const val sunset = "🌆 ATARDECER"
+    const val wind = "🌬 VIENTO"
     const val metric = "KM"
-    const val pressure = "⏲ PRESSURE"
+    const val pressure = "⏲ PRESIÓN"
     const val degree = "°"
 
     // SearchCityScreen

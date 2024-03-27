@@ -6,7 +6,7 @@ val Purple700 = Color(0xFF3700B3)
 val TransparentDarkBlue = Color(0x80252B35)
 val HighTransparentDarkBlue = Color(0xE6252B35)
 val WhiteTransparent = Color(0x40FFFFFF)
-val White = Color(0xFFFFFFFF)
+val White = Color(0xFF8BC34A)
 val ErrorRed = Color(0xFFEE5253)
 val Black = Color(0xFF000000)
 

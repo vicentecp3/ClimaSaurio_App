@@ -13,6 +13,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -27,9 +30,21 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
-            .padding(8.dp)
+            .padding( vertical = 8.dp)
+            .padding(4.dp)
     ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(
+                            Color(0xFF0077FF), // Azul más oscuro
+                            Color(0xFF4D9EFF)  // Azul más claro
+                        )
+                    )
+                )
+        )
         LazyRow(
             modifier = Modifier.fillMaxWidth(),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -66,9 +81,12 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
 @Composable
 private fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, degree: String) {
     Card(
-        modifier = Modifier,
-        shape = MaterialTheme.shapes.large,
-        backgroundColor = MaterialTheme.colors.secondary
+        modifier = Modifier
+            .padding(8.dp) // Añade un poco de espacio alrededor de la tarjeta
+            .border(0.8.dp, Color.Black, shape = MaterialTheme.shapes.large) // Añade borde negro
+            .clip(MaterialTheme.shapes.large) // Clip la tarjeta con la forma predeterminada de Material Design
+            .shadow(100.dp), // Añade sombra a la tarjeta
+        backgroundColor = MaterialTheme.colors.primary // Fondo de la tarjeta
     ) {
         Column(
             modifier = Modifier.padding(vertical = 16.dp, horizontal = 8.dp),
@@ -77,9 +95,9 @@ private fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, de
         ) {
             Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                 if (date != null) {
-                    Text(text = date, style = MaterialTheme.typography.h3.copy(fontSize = 18.sp))
+                    Text(text = date, style = MaterialTheme.typography.h3.copy(fontSize = 18.sp), color = Color.Black)
                 }
-                Text(text = time, style = MaterialTheme.typography.h3.copy(fontSize = 18.sp))
+                Text(text = time, style = MaterialTheme.typography.h3.copy(fontSize = 18.sp), color = Color.Black)
             }
             Image(
                 modifier = Modifier.size(48.dp),
@@ -87,7 +105,7 @@ private fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, de
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
             )
-            Text(text = degree, style = MaterialTheme.typography.h3.copy(fontSize = 24.sp))
+            Text(text = degree, style = MaterialTheme.typography.h3.copy(fontSize = 24.sp), color = Color.Black)
         }
     }
 }
