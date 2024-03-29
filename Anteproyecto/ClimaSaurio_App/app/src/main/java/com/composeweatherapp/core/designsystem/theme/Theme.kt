@@ -42,8 +42,9 @@ fun ComposeWeatherAppTheme(
 
     val systemUiController = rememberSystemUiController()
 
-    SideEffect {
-        systemUiController.setStatusBarColor(color = Color.Transparent)
+    SideEffect(){
+        systemUiController.setStatusBarColor(color = Color.Black )
+
     }
 
     MaterialTheme(

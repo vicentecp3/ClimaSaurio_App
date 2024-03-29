@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.composeweatherapp.R
 import com.composeweatherapp.core.utils.AppStrings
@@ -106,18 +107,53 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
         Spacer(modifier = Modifier.height(16.dp))
         Image(
             modifier = Modifier
-                .size(250.dp)
-                .clip(RoundedCornerShape(18.dp)), // Ajusta el valor de la esquina según lo desees
+                .size(200.dp)
+                .clip(RoundedCornerShape(18.dp)),
             painter = painterResource(id = R.drawable.personajebasico),
-            contentDescription = "Lluvia Ligera"
+            contentDescription = "Personaje basico"
         )
-
         Text(
             text = "${todayWeather.weatherList[0].weatherData.temp.toInt()}${AppStrings.degree}",
-            style = MaterialTheme.typography.h1,
+            style = MaterialTheme.typography.h1.copy(color = Color.White), // Cambiar el color del texto a negro
+        )
+
+        // Frases graciosas dependiendo de la temperatura y las condiciones climáticas
+        val temperature = todayWeather.weatherList[0].weatherData.temp
+        val weatherDescription = todayWeather.weatherList[0].weatherStatus[0].description
+        val randomFunnyPhrase = when {
+            temperature < 10 -> listOf(
+                "Hace mucho frío, mejor abrígate bien.",
+                "¿Volvemos a la Edad de Hielo?",
+                "El frío está así de feo porque ni él se quiere quedar."
+            ).random()
+            temperature in 10.0..20.0 -> listOf(
+                "¡Temperatura agradable para un día tranquilo!",
+                "Está en el punto justo, ni frío ni calor.",
+                "El clima está como la sopa de mamá, ¡perfecto!"
+            ).random()
+            temperature >= 25 -> listOf(
+                "¡Hace calor! ¿Alguien dijo playa?",
+                "¡Qué calor! ¿Nos vamos a la piscina?",
+                "El calor está tan fuerte que hasta los pájaros están usando abanicos."
+            ).random()
+            else -> listOf(
+                "Llueve a cántaros, mejor quédate en casa con una taza de chocolate caliente.",
+                "Hoy el paraguas es tu mejor amigo.",
+                "El clima está tan confundido que hasta las nubes tienen dudas."
+            ).random()
+        }
+
+        Text(
+            text = randomFunnyPhrase,
+            style = MaterialTheme.typography.body1.copy(color = Color.Black), // Cambiar el color del texto a negro
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 16.dp)
         )
     }
 }
+
+
+
 
 @Composable
 private fun DetailsSection(forecast: Forecast) {
@@ -128,7 +164,6 @@ private fun DetailsSection(forecast: Forecast) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
                 .height(LocalConfiguration.current.screenHeightDp.dp / 2)
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -191,7 +226,7 @@ private fun MenuIcon(onClick: () -> Unit) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_baseline_menu_24),
                 contentDescription = null,
-                tint = Color.White
+                tint = Color.Black
             )
         }
     }

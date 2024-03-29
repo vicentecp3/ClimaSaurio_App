@@ -1,11 +1,13 @@
 package com.composeweatherapp.presentation.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -82,15 +84,17 @@ private fun LocationAndDescription(
     description: String,
 ) {
     Row(
-        modifier = Modifier.fillMaxSize().padding(bottom = 16.dp, top = 40.dp),
+        modifier = Modifier.fillMaxSize().padding(bottom = 16.dp, top = 20.dp),
         verticalAlignment = Alignment.Bottom,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Column(modifier = Modifier.padding(start = 16.dp), horizontalAlignment = Alignment.Start) {
-            Text(text = "H:${latitude}  L:${longitude}")
-            Text(text = "${city}, $country")
+            Text(
+                text = "${city}, $country",
+                style = MaterialTheme.typography.h2, // Estilo de texto más grande
+                modifier = Modifier.padding(bottom = 8.dp) // Modifica el espaciado si es necesario
+            )
         }
-        Text(modifier = Modifier.padding(end = 16.dp), text = description)
     }
 }
 

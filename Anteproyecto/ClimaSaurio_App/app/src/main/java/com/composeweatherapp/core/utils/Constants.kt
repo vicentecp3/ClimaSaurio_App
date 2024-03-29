@@ -49,7 +49,7 @@ object AppStrings {
     const val sunset = "🌆 ATARDECER"
     const val wind = "🌬 VIENTO"
     const val metric = "KM"
-    const val pressure = "⏲ PRESIÓN"
+    const val pressure = "⏲ PRESIÓN hPa"
     const val degree = "°"
 
     // SearchCityScreen

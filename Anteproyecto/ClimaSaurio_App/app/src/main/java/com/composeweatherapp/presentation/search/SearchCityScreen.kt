@@ -37,16 +37,22 @@ fun SearchCityScreen(viewModel: SearchCityViewModel, onNavigateToHomeScreen: () 
     val myCitiesState by viewModel.myCitiesState.collectAsState()
 
     Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Brush.verticalGradient(listOf(DarkBlue, Blue, LightBlue))),
         topBar = { TopBarSection(onNavigateToHomeScreen) },
-        backgroundColor = Color.Transparent
+        backgroundColor = Color.Transparent,
+        modifier = Modifier.background(
+            brush = Brush.horizontalGradient(
+                colors = listOf(
+                    Color(0xBA4CAF50),
+                    Color(0xBE8BC34A)
+                )
+            )
+        )
     ) {
         Column(
             modifier = Modifier
                 .padding(it)
                 .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                .fillMaxSize()
         ) {
             SearchCityScreenContent(
                 viewModel = viewModel,
@@ -90,21 +96,22 @@ private fun SearchCityScreenContent(
     }
 }
 
+
+
 @Composable
 private fun TopBarSection(onBackClick: () -> Unit) {
     TopAppBar(
         modifier = Modifier.statusBarsPadding(),
+
         title = { Text(text = AppStrings.topbar_title, style = MaterialTheme.typography.h2) },
         navigationIcon = {
             IconButton(onClick = onBackClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_baseline_arrow_back_24),
                     contentDescription = null,
-                    tint = Color.White
                 )
             }
         },
-        backgroundColor = Color.Transparent,
         elevation = 0.dp
     )
 }
@@ -127,7 +134,15 @@ private fun SearchField(viewModel: SearchCityViewModel) {
                     contentDescription = null
                 )
             }
-        }
+        },
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            textColor = Color.Black, // Cambia el color del texto a negro
+            cursorColor = Color.Black, // Cambia el color del cursor a negro
+            leadingIconColor = Color.Black, // Cambia el color del icono a la izquierda a negro
+            trailingIconColor = Color.Black, // Cambia el color del icono a la derecha a negro
+            focusedBorderColor = Color.Black, // Cambia el color del borde cuando está enfocado a negro
+            unfocusedBorderColor = Color.Black // Cambia el color del borde cuando no está enfocado a negro
+        )
     )
 }
 

@@ -1,10 +1,12 @@
 package com.composeweatherapp.presentation.navigation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,10 +24,7 @@ fun NavGraph(
 ) {
     val navController = rememberNavController()
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        backgroundColor = Color.Green // Establece el color de fondo como verde
-    ) {
+    Scaffold{
         NavHost(
             modifier = Modifier.padding(it),
             navController = navController,

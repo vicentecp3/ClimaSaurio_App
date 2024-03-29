@@ -7,10 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.composeweatherapp.core.designsystem.theme.ComposeWeatherAppTheme
@@ -47,15 +49,12 @@ class MainActivity : ComponentActivity() {
             ComposeWeatherAppTheme {
                 val systemUiController = rememberSystemUiController()
                 SideEffect {
-                    systemUiController.setStatusBarColor(color = Color.Transparent)
+                    systemUiController.setStatusBarColor(color = Color.Black)
                 }
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background,
-                ) {
+                Surface{
                     NavGraph(
                         homeViewModel = homeViewModel,
-                        searchCityViewModel = searchCityViewModel
+                        searchCityViewModel = searchCityViewModel,
                     )
                 }
             }
