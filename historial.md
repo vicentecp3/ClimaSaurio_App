@@ -81,6 +81,17 @@ Historial de Tareas
 
 . Después de arreglar este problema, vi códigos de GitHub de apps donde añadían a favoritos lugares con su respectiva localización.
 
+# 26 Marzo 
+
+. Seguí diseñando la parte de favoritos de la app.
+
+. Trate de hacer un código que dependiendo de la temperatura que hiciera, se colocara una imagen u otra.
+
+# 27 Marzo
+
+. Modifique rectángulos, colores y bordes de cuadrados de la app para que se viera mejor.
+
+. Seguí con el código de para cambiar la imagen dependiendo del clima que hiciera, ya que tenía problemas.
 
 
 
