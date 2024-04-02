@@ -162,13 +162,6 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
 }
 
 
-
-
-
-
-
-
-
 @Composable
 private fun DetailsSection(forecast: Forecast) {
     Box(
@@ -245,3 +238,4 @@ private fun MenuIcon(onClick: () -> Unit) {
         }
     }
 }
+

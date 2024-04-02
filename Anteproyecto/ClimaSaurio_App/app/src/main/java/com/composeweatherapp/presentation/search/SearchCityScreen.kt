@@ -103,7 +103,7 @@ private fun TopBarSection(onBackClick: () -> Unit) {
     TopAppBar(
         modifier = Modifier.statusBarsPadding(),
 
-        title = { Text(text = AppStrings.topbar_title, style = MaterialTheme.typography.h2) },
+        title = { Text(text = "Favoritos", style = MaterialTheme.typography.h2) },
         navigationIcon = {
             IconButton(onClick = onBackClick) {
                 Icon(
@@ -123,7 +123,7 @@ private fun SearchField(viewModel: SearchCityViewModel) {
         value = viewModel.searchFieldValue,
         onValueChange = { viewModel.updateSearchField(it) },
         label = {
-            Text(text = AppStrings.placeholder)
+            Text(text = "Buscar una ciudad")
         },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
         maxLines = 1,
@@ -251,7 +251,7 @@ private fun EmptyCityListMessage() {
         painter = painterResource(id = R.drawable.no_city),
         contentDescription = null
     )
-    Text(text = AppStrings.no_city)
+    Text(text = "No tienes ninguna ciudad")
 }
 
 @Composable
