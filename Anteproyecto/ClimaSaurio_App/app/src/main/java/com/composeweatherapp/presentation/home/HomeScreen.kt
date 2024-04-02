@@ -105,52 +105,66 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
             style = MaterialTheme.typography.h2
         )
         Spacer(modifier = Modifier.height(16.dp))
+
+        // Obtener la temperatura en Celsius
+        val temperatureCelsius = todayWeather.weatherList[0].weatherData.temp
+        // Imprimir en la consola para verificar los datos
+        println("Temperatura: $temperatureCelsius")
+
+        val lluviaFuerte = temperatureCelsius  < 10
+        val lluviaLigera = temperatureCelsius >= 10 && temperatureCelsius < 25
+        val muchoCalor = temperatureCelsius >= 25
+
+
+        // Nombre de la imagen según la temperatura
+        val imageResId = when {
+            lluviaFuerte -> R.drawable.lluviafuerte
+            lluviaLigera -> R.drawable.lluvialigera
+            muchoCalor -> R.drawable.muchocalor
+            else -> R.drawable.personajebasico // Imagen por defecto si no coincide con ninguna
+        }
+
         Image(
             modifier = Modifier
-                .size(200.dp)
+                .size(170.dp)
                 .clip(RoundedCornerShape(18.dp)),
-            painter = painterResource(id = R.drawable.personajebasico),
-            contentDescription = "Personaje basico"
-        )
-        Text(
-            text = "${todayWeather.weatherList[0].weatherData.temp.toInt()}${AppStrings.degree}",
-            style = MaterialTheme.typography.h1.copy(color = Color.White), // Cambiar el color del texto a negro
+            painter = painterResource(id = imageResId),
+            contentDescription = "Avatar"
         )
 
-        // Frases graciosas dependiendo de la temperatura y las condiciones climáticas
-        val temperature = todayWeather.weatherList[0].weatherData.temp
-        val weatherDescription = todayWeather.weatherList[0].weatherStatus[0].description
-        val randomFunnyPhrase = when {
-            temperature < 10 -> listOf(
-                "Hace mucho frío, mejor abrígate bien.",
-                "¿Volvemos a la Edad de Hielo?",
-                "El frío está así de feo porque ni él se quiere quedar."
-            ).random()
-            temperature in 10.0..20.0 -> listOf(
-                "¡Temperatura agradable para un día tranquilo!",
-                "Está en el punto justo, ni frío ni calor.",
-                "El clima está como la sopa de mamá, ¡perfecto!"
-            ).random()
-            temperature >= 25 -> listOf(
-                "¡Hace calor! ¿Alguien dijo playa?",
-                "¡Qué calor! ¿Nos vamos a la piscina?",
-                "El calor está tan fuerte que hasta los pájaros están usando abanicos."
-            ).random()
-            else -> listOf(
-                "Llueve a cántaros, mejor quédate en casa con una taza de chocolate caliente.",
-                "Hoy el paraguas es tu mejor amigo.",
-                "El clima está tan confundido que hasta las nubes tienen dudas."
-            ).random()
-        }
+        Text(
+            text = "${temperatureCelsius.toInt()}${AppStrings.degree}",
+            style = MaterialTheme.typography.h1.copy(color = Color.White),
+        )
+
+        // Frases divertidas, aptas para un público más general
+        val funnyPhrases = listOf(
+            "¿Por qué el clima nunca gana en una pelea? ¡Porque siempre se nubla!",
+            "¿Cuál es el clima más tímido? ¡El neblinoso!",
+            "¿Qué hace el sol cuando está aburrido? ¡Se pone naranja!",
+            "¿Por qué la lluvia nunca llega tarde? ¡Porque siempre cae en el momento justo!",
+            "¿Qué hace el viento cuando se divierte? ¡Hace volar las hojas en un torbellino de risa!",
+            "¿Cuál es el clima más romántico? ¡El que te hace querer abrazar a alguien!",
+            "¿Qué hace una nube cuando está triste? ¡Llora lágrimas de lluvia!",
+            "¿Cuál es el clima favorito de los artistas? ¡El que pinta el cielo de colores!",
+            "¿Por qué el clima siempre tiene la última palabra? ¡Porque siempre hace un pronóstico!"
+        )
+
+        val randomFunnyPhrase = funnyPhrases.random()
 
         Text(
             text = randomFunnyPhrase,
-            style = MaterialTheme.typography.body1.copy(color = Color.Black), // Cambiar el color del texto a negro
+            style = MaterialTheme.typography.body1.copy(color = Color.Black),
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 16.dp)
         )
     }
 }
+
+
+
+
+
 
 
 
