@@ -222,10 +222,19 @@ private fun WeatherDetailSection(currentWeather: Forecast) {
     )
     CurrentWeatherDetailRow(
         title1 = AppStrings.wind,
-        value1 = "${currentWeather.weatherList[0].wind.speed}${AppStrings.metric}",
+        value1 = convertWindSpeed(currentWeather.weatherList[0].wind.speed.toString()),
         title2 = AppStrings.pressure,
         value2 = "${currentWeather.weatherList[0].weatherData.pressure}"
     )
+}
+@Composable
+private fun convertWindSpeed(speedInMetersPerSecond: String): String {
+    return try {
+        val speedInKmh = (speedInMetersPerSecond.toDoubleOrNull() ?: 0.0) * 3.6
+        "${speedInKmh.toInt()} km/h"
+    } catch (e: Exception) {
+        "Error: ${e.message}"
+    }
 }
 
 @Composable

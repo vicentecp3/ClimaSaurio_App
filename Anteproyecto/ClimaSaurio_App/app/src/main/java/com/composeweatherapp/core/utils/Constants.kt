@@ -48,7 +48,7 @@ object AppStrings {
     const val sunrise = "🌇 AMANECER"
     const val sunset = "🌆 ATARDECER"
     const val wind = "🌬 VIENTO"
-    const val metric = "KM"
+    const val metric = "Km/h"
     const val pressure = "⏲ PRESIÓN hPa"
     const val degree = "°"
 

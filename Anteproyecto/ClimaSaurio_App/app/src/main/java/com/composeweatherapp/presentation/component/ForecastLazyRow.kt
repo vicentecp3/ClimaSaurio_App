@@ -30,7 +30,7 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding( vertical = 8.dp)
+            .padding(vertical = 8.dp)
             .padding(4.dp)
     ) {
         Box(
@@ -51,6 +51,9 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(forecasts) {
+                val windSpeedKmh = "${(it.wind.speed * 3.6).toInt()} Km/h" // Convertir la velocidad del viento de m/s a km/h
+                val windDirection = getWindDirection(it.wind.speed) // Calcular la dirección del viento
+
                 if (forecasts.size == 8) {
                     WeatherCard(
                         time = HourConverter.convertHour(it.date.substring(11, 13)),
@@ -59,7 +62,9 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
                             it.weatherStatus[0].description,
                             HourConverter.convertHour(it.date.substring(11, 13)),
                         ),
-                        degree = "${it.weatherData.temp.toInt()}°"
+                        degree = "${it.weatherData.temp.toInt()}°",
+                        windSpeed = windSpeedKmh, // Utilizar la velocidad del viento convertida a km/h
+                        windDirection = windDirection // Añadir la dirección del viento
                     )
                 } else {
                     WeatherCard(
@@ -70,7 +75,9 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
                             it.weatherStatus[0].description,
                             HourConverter.convertHour(it.date.substring(11, 13)),
                         ),
-                        degree = "${it.weatherData.temp.toInt()}°"
+                        degree = "${it.weatherData.temp.toInt()}°",
+                        windSpeed = windSpeedKmh, // Utilizar la velocidad del viento convertida a km/h
+                        windDirection = windDirection // Añadir la dirección del viento
                     )
                 }
             }
@@ -79,7 +86,7 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
 }
 
 @Composable
-fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, degree: String) {
+fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, degree: String, windSpeed: String, windDirection: String) {
     Card(
         modifier = Modifier
             .padding(8.dp) // Añade un poco de espacio alrededor de la tarjeta
@@ -106,6 +113,23 @@ fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, degree: St
                 contentScale = ContentScale.FillWidth
             )
             Text(text = degree, style = MaterialTheme.typography.h3.copy(fontSize = 24.sp), color = Color.Black)
+            Text(text = "\uD83C\uDF2C: $windSpeed", style = MaterialTheme.typography.body1.copy(fontSize = 16.sp), color = Color.Black)
+            Text(text = "Dirección: $windDirection", style = MaterialTheme.typography.body1.copy(fontSize = 16.sp), color = Color.Black)
         }
     }
 }
+
+fun getWindDirection(deg: Double): String {
+    return when {
+        deg >= 0.5 || deg < 22.5 -> "N"
+        deg in 22.5..67.5 -> "NE"
+        deg in 67.5..112.5 -> "E"
+        deg in 112.5..157.5 -> "SE"
+        deg in 157.5..202.5 -> "S"
+        deg in 202.5..247.5 -> "SW"
+        deg in 247.5..292.5 -> "W"
+        deg in 292.5..337.5 -> "NW"
+        else -> "N/A"
+    }
+}
+
