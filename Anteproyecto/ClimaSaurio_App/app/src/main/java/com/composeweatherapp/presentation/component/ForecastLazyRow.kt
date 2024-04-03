@@ -79,7 +79,7 @@ fun ForecastLazyRow(forecasts: List<ForecastWeather>) {
 }
 
 @Composable
-private fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, degree: String) {
+fun WeatherCard(date: String? = null, time: String, weatherIcon: Int, degree: String) {
     Card(
         modifier = Modifier
             .padding(8.dp) // Añade un poco de espacio alrededor de la tarjeta

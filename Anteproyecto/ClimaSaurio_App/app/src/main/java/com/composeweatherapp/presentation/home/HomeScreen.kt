@@ -2,9 +2,13 @@ package com.composeweatherapp.presentation.home
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -15,21 +19,27 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.composeweatherapp.R
 import com.composeweatherapp.core.utils.AppStrings
 import com.composeweatherapp.domain.model.Forecast
 import com.composeweatherapp.core.helpers.EpochConverter
+import com.composeweatherapp.core.helpers.HourConverter
 import com.composeweatherapp.core.helpers.SetError
 import com.composeweatherapp.presentation.component.*
 import com.composeweatherapp.core.utils.ErrorCardConsts
 import com.composeweatherapp.core.utils.ExceptionTitles
+import com.composeweatherapp.core.utils.WeatherType
+import com.composeweatherapp.domain.model.ForecastWeather
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -47,7 +57,8 @@ fun HomeScreen(viewModel: HomeViewModel, onNavigateToSearchCityScreen: () -> Uni
 @Composable
 private fun BackgroundImage() {
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(
                 brush = Brush.horizontalGradient(
                     colors = listOf(
@@ -93,6 +104,13 @@ private fun WeatherSection(currentWeatherState: HomeForecastState, errorCardOnCl
 
 @Composable
 private fun CurrentWeatherSection(todayWeather: Forecast) {
+    // Lista de nombres de las imágenes disponibles
+    val imageNames = listOf("dino1", "dino2", "dino3", "dino4", "dino5")
+
+    // Generar un número aleatorio para seleccionar el nombre de la imagen
+    val randomIndex = (0 until imageNames.size).random()
+    val randomImageName = imageNames[randomIndex]
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -111,24 +129,11 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
         // Imprimir en la consola para verificar los datos
         println("Temperatura: $temperatureCelsius")
 
-        val lluviaFuerte = temperatureCelsius  < 10
-        val lluviaLigera = temperatureCelsius >= 10 && temperatureCelsius < 25
-        val muchoCalor = temperatureCelsius >= 25
-
-
-        // Nombre de la imagen según la temperatura
-        val imageResId = when {
-            lluviaFuerte -> R.drawable.lluviafuerte
-            lluviaLigera -> R.drawable.lluvialigera
-            muchoCalor -> R.drawable.muchocalor
-            else -> R.drawable.personajebasico // Imagen por defecto si no coincide con ninguna
-        }
-
+        // Usar el nombre de la imagen aleatoria
         Image(
             modifier = Modifier
-                .size(170.dp)
-                .clip(RoundedCornerShape(18.dp)),
-            painter = painterResource(id = imageResId),
+                .size(173.dp),
+            painter = painterResource(id = getResourceIdByName(LocalContext.current, randomImageName)),
             contentDescription = "Avatar"
         )
 
@@ -159,6 +164,12 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
             modifier = Modifier.padding(horizontal = 16.dp)
         )
     }
+}
+
+@Composable
+private fun getResourceIdByName(context: Context, imageName: String): Int {
+    // Obtener el identificador de recurso (ID) de la imagen por su nombre
+    return context.resources.getIdentifier(imageName, "drawable", context.packageName)
 }
 
 
@@ -238,4 +249,3 @@ private fun MenuIcon(onClick: () -> Unit) {
         }
     }
 }
-
