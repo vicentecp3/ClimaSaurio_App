@@ -93,6 +93,28 @@ Historial de Tareas
 
 . Seguí con el código de para cambiar la imagen dependiendo del clima que hiciera, ya que tenía problemas.
 
+# 1 Abril
+
+. Este día fue más de buscar información y probar códigos pequeños ya que el internet no iba tan bien como para clonar el repositorio, ya que había hecho muchos cambios.
+
+. Comencé a buscar información sobre como colocar la dirección del viento en la app.
+
+. Hice pequeños códigos para ver si funcionaba y aparecía la dirección del viento usando la API.
+
+# 2 abril 
+
+. Trabajé desde casa modificando el avatar o personaje de la app.
+
+. También modifique la velocidad del viento que venía por m/s.
+
+# 3 abril 
+
+. Ya que tenía el código clonado, comencé a implementar la dirección del tiempo usando la api, aunque no lo logre de momento ya que siempre dice que el viento viene del norte.
+
+. Implemente los nuevos personajes de la app y que siempre salgan diferentes cuando se inicie la app.
+
+. También las frases que salen debajo de la temperatura las empecé a modificar para darle un aspecto más general.
+
 
 
 
