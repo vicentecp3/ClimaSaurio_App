@@ -121,7 +121,7 @@ private fun ActionButton(onClick: () -> Unit, painterId: Int) {
         Icon(
             painter = painterResource(id = painterId),
             contentDescription = null,
-            tint = White
+            tint = Color.Black,
         )
     }
 }

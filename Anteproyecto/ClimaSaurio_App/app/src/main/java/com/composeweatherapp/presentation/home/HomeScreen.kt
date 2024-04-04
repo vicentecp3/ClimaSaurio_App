@@ -151,7 +151,6 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
             "¿Por qué los esqueletos no pelean entre sí? ¡Porque no tienen agallas!",
             "¿Cuál es el colmo de los colmos? ¡Que un mudo le diga a un sordo que un ciego los está mirando!",
             "¿Qué le dice un jardinero a otro? ¡Nos vemos plantando!",
-            "¿Cuál es el país más limpio? ¡Escoba-dor!",
             "¿Qué le dice un árbol a otro? ¡Nos vemos en el bosque!"
         )
 
