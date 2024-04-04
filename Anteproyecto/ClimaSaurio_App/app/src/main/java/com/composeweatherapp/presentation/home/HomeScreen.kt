@@ -144,15 +144,15 @@ private fun CurrentWeatherSection(todayWeather: Forecast) {
 
         // Frases divertidas, aptas para un público más general
         val funnyPhrases = listOf(
-            "¿Por qué el clima nunca gana en una pelea? ¡Porque siempre se nubla!",
-            "¿Cuál es el clima más tímido? ¡El neblinoso!",
-            "¿Qué hace el sol cuando está aburrido? ¡Se pone naranja!",
-            "¿Por qué la lluvia nunca llega tarde? ¡Porque siempre cae en el momento justo!",
-            "¿Qué hace el viento cuando se divierte? ¡Hace volar las hojas en un torbellino de risa!",
-            "¿Cuál es el clima más romántico? ¡El que te hace querer abrazar a alguien!",
-            "¿Qué hace una nube cuando está triste? ¡Llora lágrimas de lluvia!",
-            "¿Cuál es el clima favorito de los artistas? ¡El que pinta el cielo de colores!",
-            "¿Por qué el clima siempre tiene la última palabra? ¡Porque siempre hace un pronóstico!"
+            "¿Por qué los pájaros no usan Facebook? ¡Porque ya tienen Twitter!",
+            "¿Cuál es el animal más famoso en la red? ¡El ratón del ordenador!",
+            "¿Cuál es el colmo de un electricista? ¡Tener mala corriente de ideas!",
+            "¿Qué le dice una iguana a su hermana gemela? ¡Iguanita!",
+            "¿Por qué los esqueletos no pelean entre sí? ¡Porque no tienen agallas!",
+            "¿Cuál es el colmo de los colmos? ¡Que un mudo le diga a un sordo que un ciego los está mirando!",
+            "¿Qué le dice un jardinero a otro? ¡Nos vemos plantando!",
+            "¿Cuál es el país más limpio? ¡Escoba-dor!",
+            "¿Qué le dice un árbol a otro? ¡Nos vemos en el bosque!"
         )
 
         val randomFunnyPhrase = funnyPhrases.random()

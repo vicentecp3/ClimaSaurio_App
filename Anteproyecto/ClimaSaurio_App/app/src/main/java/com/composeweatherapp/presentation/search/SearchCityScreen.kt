@@ -103,7 +103,7 @@ private fun TopBarSection(onBackClick: () -> Unit) {
     TopAppBar(
         modifier = Modifier.statusBarsPadding(),
 
-        title = { Text(text = "Favoritos", style = MaterialTheme.typography.h2) },
+        title = { Text(text = "Favoritos", style = MaterialTheme.typography.h2, color = Color.Black) },
         navigationIcon = {
             IconButton(onClick = onBackClick) {
                 Icon(
@@ -121,9 +121,11 @@ private fun SearchField(viewModel: SearchCityViewModel) {
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         value = viewModel.searchFieldValue,
+        shape = MaterialTheme.shapes.small,
         onValueChange = { viewModel.updateSearchField(it) },
         label = {
-            Text(text = "Buscar una ciudad")
+            Text(text = "Buscar una ciudad", color = Color.Black)
+
         },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
         maxLines = 1,
@@ -258,7 +260,8 @@ private fun EmptyCityListMessage() {
 private fun CityListSection(cityList: List<MyCity>, viewModel: SearchCityViewModel) {
     Text(
         text = AppStrings.subtitle1,
-        style = MaterialTheme.typography.h2
+        style = MaterialTheme.typography.h2,
+        color = Color.Black
     )
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
