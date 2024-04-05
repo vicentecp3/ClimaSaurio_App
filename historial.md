@@ -115,6 +115,13 @@ Historial de Tareas
 
 . También las frases que salen debajo de la temperatura las empecé a modificar para darle un aspecto más general.
 
+# 4 Abril
+
+. Termine de realizar la presentación y documentación del proyecto para presentar el día viernes 5.
+
+. También retoque cosas de la aplicación, como colores y alguna funcionalidad que me faltaba.
+
+
 
 
 
